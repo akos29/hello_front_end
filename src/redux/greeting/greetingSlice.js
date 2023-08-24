@@ -1,12 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const apiURL = 'http://localhost:4000/api/random_greeting';
+
 export const fetchGreetings = createAsyncThunk('greeting/fetchGreetings', async () => {
   try {
-    const response = await axios.get('http://localhost:4000/api/random_greeting');
-    return response.greeting;
+    const response = await axios.get(apiURL);
+    return response.data;
   } catch (error) {
-    console.error('Error fetching greeting:', error);
+    // eslint-disable-next-line
+    console.error('After Axios request - Error:', error);
     throw error;
   }
 });

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchGreetings } from './redux/greeting/greetingSlice.js';
+import { fetchGreetings } from './redux/greeting/greetingSlice';
 
-const App = () => {
+function App() {
   const greeting = useSelector((state) => state.greeting.greeting);
   const dispatch = useDispatch();
 
@@ -12,8 +12,10 @@ const App = () => {
 
   return (
     <>
-    <h1>Hello</h1>
-    {greeting? greeting : null}</>);
-};
+      <h1>Welcome!</h1>
+      {greeting?.greeting || null}
+    </>
+  );
+}
 
 export default App;

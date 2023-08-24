@@ -5,7 +5,6 @@ const store = configureStore({
   reducer: {
     greeting: greetingReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 export default store;
