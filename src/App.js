@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchGreetings } from './redux/greeting/greetingSlice';
+import React from 'react';
+import './App.css';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
+import Greeting from './components/Greeting';
+
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route index element={<Greeting />} />,
+));
 
 function App() {
-  const greeting = useSelector((state) => state.greeting.greeting);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchGreetings());
-  }, [dispatch]);
-
-  return (
-    <>
-      <h1>Welcome!</h1>
-      {greeting?.greeting || null}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

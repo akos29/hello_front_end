@@ -1,12 +1,12 @@
-// src/setupProxy.js
+// eslint-disable-next-line import/no-extraneous-dependencies
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
   app.use(
-    '/api', // Replace with your API route prefix
+    '/api',
     createProxyMiddleware({
-      target: 'http://localhost:4000', // URL of your Rails backend
+      target: 'http://localhost:4000',
       changeOrigin: true,
-    })
+    }),
   );
 };
